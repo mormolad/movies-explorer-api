@@ -1,0 +1,20 @@
+{
+  "name": "web-developer-thesis",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "npx eslint .",
+    "start": " node app.js",
+    "dev": " nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mormolad/movies-explorer-api.git"
+  },
+  "author": "Perevalov Anton",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mormolad/movies-explorer-api/issues"
+  }
+}
