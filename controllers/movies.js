@@ -25,7 +25,6 @@ const createMovie = (req, res, next) => {
         thumbnail,
         movieId,
     } = req.body;
-    console.log("wtf");
     return MoviesModel.create({
         country,
         director,

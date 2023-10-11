@@ -23,7 +23,7 @@ mongoose
         useNewUrlParser: true,
     })
     .then(() => {
-        console.log("connected to db"); // eslint-disable-line no-console
+        console.log("connected to db");
     });
 
 const app = express();
@@ -46,5 +46,5 @@ app.use((err, req, res, next) => {
     sendError(err, req, res);
 });
 app.listen(PORT, () => {
-    console.log(`server start, listen port: ${PORT}`); // eslint-disable-line no-console
+    console.log(`server start, listen port: ${PORT}`);
 });
