@@ -1,4 +1,4 @@
-const MoviesModel = require("../models/movies");
+const MoviesModel = require("../models/movie");
 const { CustomeError } = require("../utils/handlerErrors");
 
 const getMoviesUsers = (req, res, next) =>
@@ -25,6 +25,7 @@ const createMovie = (req, res, next) => {
         thumbnail,
         movieId,
     } = req.body;
+    console.log("wtf");
     return MoviesModel.create({
         country,
         director,
