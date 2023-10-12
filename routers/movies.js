@@ -13,7 +13,7 @@ routerMovies.post(
         body: Joi.object().keys({
             country: Joi.string().required().min(2).max(82),
             director: Joi.string().required().min(2),
-            duration: Joi.number().integer().required(),
+            duration: Joi.number().integer().required().min(1900).max(2024),
             year: Joi.string().required().min(4).max(4),
             description: Joi.string().required().min(2),
             image: Joi.string()
@@ -31,10 +31,9 @@ routerMovies.post(
                 .pattern(
                     /^((ftp|http|https):\/\/)?(www\.)?([A-Za-zА-Яа-я0-9]{1}[A-Za-zА-Яа-я0-9\-]*\.?)*\.{1}[A-Za-zА-Яа-я0-9-]{2,8}(\/([\w#!:.?+=&%@!\-\/])*)?/
                 ),
-            owner: Joi.string().length(24).hex().required(),
             movieId: Joi.number().integer().required(),
             nameRU: Joi.string().required().min(1),
-            nameRU: Joi.string().required().min(1),
+            nameEN: Joi.string().required().min(1),
         }),
     }),
     createMovie

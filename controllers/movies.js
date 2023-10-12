@@ -1,15 +1,16 @@
 const MoviesModel = require("../models/movie");
 const { CustomeError } = require("../utils/handlerErrors");
 
-const getMoviesUsers = (req, res, next) =>
-    MoviesModel.find(req.user._id)
+const getMoviesUsers = (req, res, next) => {
+    MoviesModel.find({ owner: req.user._id })
         .then((movies) => {
-            if (!movies) {
+            if (movies.length === 0) {
                 throw new CustomeError(404, "no find movies");
             }
             res.status(200).send({ message: movies });
         })
         .catch(next);
+};
 
 const createMovie = (req, res, next) => {
     const {
@@ -54,7 +55,7 @@ const deleteMovie = (req, res, next) => {
             if (!movie) {
                 throw new CustomeError(404, "no find movie");
             } else if (movie.owner === req.user._id) {
-                CardModel.deleteOne({ _id: req.params.movieId }).then(() =>
+                MoviesModel.deleteOne({ _id: req.params.movieId }).then(() =>
                     res.status(200).send({ message: movie })
                 );
             } else {

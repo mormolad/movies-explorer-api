@@ -8,7 +8,7 @@ routerAuth.post(
         body: Joi.object().keys({
             email: Joi.string().email({ minDomainSegments: 2 }).required(),
             password: Joi.string().required().min(2),
-            name: Joi.string().min(2).max(30).required(),
+            name: Joi.string().min(1).max(30).required(),
         }),
     }),
     createUser

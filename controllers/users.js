@@ -1,8 +1,9 @@
 const UserModel = require("../models/user");
 const { CustomeError } = require("../utils/handlerErrors");
 
-const getUser = (req, res, next) =>
-    UserModel.find(req.user._id)
+const getUser = (req, res, next) => {
+    console.log(req.user._id);
+    UserModel.findOne({ _id: req.user._id })
         .then((user) => {
             if (!user) {
                 throw new CustomeError(404, "user not find");
@@ -10,6 +11,7 @@ const getUser = (req, res, next) =>
             return res.status(200).send({ message: user });
         })
         .catch(next);
+};
 
 const updateProfile = (req, res, next) =>
     UserModel.findByIdAndUpdate(

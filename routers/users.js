@@ -9,8 +9,8 @@ routerUser.patch(
     "/users/me",
     celebrate({
         body: Joi.object().keys({
-            email: Joi.string().email({ minDomainSegments: 2 }).required(),
-            name: Joi.string().min(1).max(30).required(),
+            email: Joi.string().email({ minDomainSegments: 2 }),
+            name: Joi.string().min(1).max(30),
         }),
     }),
     updateProfile
