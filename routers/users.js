@@ -6,14 +6,14 @@ const { getUser, updateProfile } = require("../controllers/users");
 routerUser.get("/users/me", getUser);
 // обновляет информацию о пользователе (email и имя)
 routerUser.patch(
-    "/users/me",
-    celebrate({
-        body: Joi.object().keys({
-            email: Joi.string().email({ minDomainSegments: 2 }),
-            name: Joi.string().min(1).max(30),
-        }),
+  "/users/me",
+  celebrate({
+    body: Joi.object().keys({
+      email: Joi.string().email({ minDomainSegments: 2 }),
+      name: Joi.string().min(1).max(30),
     }),
-    updateProfile
+  }),
+  updateProfile
 );
 
 module.exports = routerUser;

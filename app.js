@@ -16,16 +16,15 @@ const { sendError } = require("./utils/handlerErrors");
 const { requestLogger, errorLogger } = require("./middlewares/logger");
 
 const { PORT = 3000, MONGODB_URL = "mongodb://127.0.0.1:27017/bitfilmsdb" } =
-    process.env;
+  process.env;
 
 // подключаемся к серверу mongo
 mongoose
-    .connect(MONGODB_URL, {
-        useNewUrlParser: true,
-    })
-    .then(() => {
-        console.log("connected to db");
-    });
+  .connect(MONGODB_URL, {
+    useNewUrlParser: true,
+  })
+  .then(() => console.log("connected to db"))
+  .catch(() => console.log("do not connected to db"));
 
 const app = express();
 
@@ -44,8 +43,8 @@ app.use(router);
 app.use(errorLogger); // подключаем логгер ошибок
 app.use(errors());
 app.use((err, req, res, next) => {
-    sendError(err, req, res);
+  sendError(err, req, res);
 });
 app.listen(PORT, () => {
-    console.log(`server start, listen port: ${PORT}`);
+  console.log(`server start, listen port: ${PORT}`);
 });
