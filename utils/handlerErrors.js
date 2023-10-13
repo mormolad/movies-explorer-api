@@ -19,9 +19,7 @@ function sendError(err, req, res) {
       .status(409)
       .send({ message: "пользователь с таким емайлом существует" });
   }
-  if (err.value === "6") {
-    res.status(403).send({ message: "нет права доступа" });
-  } else if (err.name === "ValidationError") {
+  if (err.name === "ValidationError") {
     res.status(400).send({ message: "переданные данные не валидны" });
   } else {
     res.status(500).send({ message: err });

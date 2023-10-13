@@ -7,11 +7,7 @@ const helmet = require("helmet");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const { limiter } = require("./utils/limiter");
-const routerUser = require("./routers/users");
-const routerMovies = require("./routers/movies");
-const routerAuth = require("./routers/auth");
-const router = require("./routers/index");
-const auth = require("./middlewares/auth");
+const router = require("./routes/index");
 const { sendError } = require("./utils/handlerErrors");
 const { requestLogger, errorLogger } = require("./middlewares/logger");
 
@@ -35,10 +31,6 @@ app.use(helmet());
 app.disable("x-powered-by");
 app.use(requestLogger); // подключаем логгер запросов
 app.use(limiter);
-app.use(routerAuth);
-app.use(auth);
-app.use(routerUser);
-app.use(routerMovies);
 app.use(router);
 app.use(errorLogger); // подключаем логгер ошибок
 app.use(errors());

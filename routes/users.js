@@ -1,19 +1,9 @@
 const routerUser = require("express").Router();
-const { celebrate, Joi } = require("celebrate");
-
+const { validateUser } = require("../utils/validation");
 const { getUser, updateProfile } = require("../controllers/users");
 // возвращает информацию о пользователе (email и имя)
-routerUser.get("/users/me", getUser);
+routerUser.get("/me", getUser);
 // обновляет информацию о пользователе (email и имя)
-routerUser.patch(
-  "/users/me",
-  celebrate({
-    body: Joi.object().keys({
-      email: Joi.string().email({ minDomainSegments: 2 }),
-      name: Joi.string().min(1).max(30),
-    }),
-  }),
-  updateProfile
-);
+routerUser.patch("/me", validateUser, updateProfile);
 
 module.exports = routerUser;

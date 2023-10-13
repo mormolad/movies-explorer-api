@@ -6,8 +6,9 @@ const auth = (req, res, next) => {
     !req.headers.authorization ||
     !req.headers.authorization.startsWith("Bearer ")
   ) {
-    return next(new CustomeError(401, "you are not authorized"));
+    next(new CustomeError(401, "you are not authorized"));
   }
+
   const token = req.headers.authorization.replace("Bearer ", "");
 
   isJWT(token)
