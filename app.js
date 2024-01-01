@@ -30,6 +30,8 @@ app.use(
     origin: [
       "http://filmissio.nomoredomainsmonster.ru/",
       "https://filmissio.nomoredomainsmonster.ru/",
+      "http://api.filmissio.nomoredomainsmonster.ru/",
+      "https://api.filmissio.nomoredomainsmonster.ru/",
       "http://localhost:3001",
       "http://localhost:3000",
     ],
