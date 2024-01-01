@@ -34,6 +34,8 @@ app.use(
       "https://api.filmissio.nomoredomainsmonster.ru/",
       "http://localhost:3001",
       "http://localhost:3000",
+      "https://localhost:3001",
+      "https://localhost:3000",
     ],
     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
     preflightContinue: false,
