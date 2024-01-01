@@ -28,7 +28,7 @@ const app = express();
 app.use(
   cors({
     origin: [
-      "http://filmissio.nomoredomainsmonster.ru/",
+      "http://filmissio.nomoredomainsmonster.ru/", //https://filmissio.nomoredomainsmonster.ru/
       "https://filmissio.nomoredomainsmonster.ru/",
       "http://api.filmissio.nomoredomainsmonster.ru/",
       "https://api.filmissio.nomoredomainsmonster.ru/",
@@ -36,7 +36,7 @@ app.use(
       "http://localhost:3000",
     ],
     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-    preflightContinue: false,
+    //preflightContinue: false,
     optionsSuccessStatus: 204,
     allowedHeaders: ["Content-Type", "origin", "Authorization"],
     credentials: true,
