@@ -26,22 +26,23 @@ mongoose
 const app = express();
 
 app.use(
-  cors({
-    origin: [
-      "http://filmissio.nomoredomainsmonster.ru/", //https://filmissio.nomoredomainsmonster.ru/
-      "https://filmissio.nomoredomainsmonster.ru/",
-      "http://api.filmissio.nomoredomainsmonster.ru/",
-      "https://api.filmissio.nomoredomainsmonster.ru/",
-      "http://localhost:3001",
-      "http://localhost:3000",
-      "https://localhost:3000",
-    ],
-    methods: ["GET", "HEAD", "PUT", "PATCH", "POST", "DELETE"],
-    preflightContinue: false,
-    optionsSuccessStatus: 204,
-    allowedHeaders: ["Content-Type", "origin", "Authorization"],
-    credentials: true,
-  })
+  cors()
+  // cors({
+  //   origin: [
+  //     "http://filmissio.nomoredomainsmonster.ru/", //https://filmissio.nomoredomainsmonster.ru/
+  //     "https://filmissio.nomoredomainsmonster.ru/",
+  //     "http://api.filmissio.nomoredomainsmonster.ru/",
+  //     "https://api.filmissio.nomoredomainsmonster.ru/",
+  //     "http://localhost:3001",
+  //     "http://localhost:3000",
+  //     "https://localhost:3000",
+  //   ],
+  //   methods: ["GET", "HEAD", "PUT", "PATCH", "POST", "DELETE"],
+  //   preflightContinue: false,
+  //   optionsSuccessStatus: 204,
+  //   allowedHeaders: ["Content-Type", "origin", "Authorization"],
+  //   credentials: true,
+  // })
 );
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, "public")));
