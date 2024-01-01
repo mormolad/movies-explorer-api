@@ -27,7 +27,6 @@ const app = express();
 
 app.use(
   cors({
-    credentials: true,
     origin: [
       "http://filmissio.nomoredomainsmonster.ru/",
       "https://filmissio.nomoredomainsmonster.ru/",
@@ -40,6 +39,7 @@ app.use(
     preflightContinue: false,
     optionsSuccessStatus: 204,
     allowedHeaders: ["Content-Type", "origin", "Authorization"],
+    credentials: true,
   })
 );
 app.use(bodyParser.json());
